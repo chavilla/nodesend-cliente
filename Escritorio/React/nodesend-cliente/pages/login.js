@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import {useRouter} from 'next/router';
 import Layout from '../components/Layout';
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import authState from '../context/autenticacion/authContext';
+import Alerta from '../components/Alerta';
 
 const Home = () => {
+
+  //Obtener valores del context
+  const { autenticado,mensaje, iniciarSesion }=useContext(authState);
+  //Asignar un router al hook
+  const router=useRouter();
+  useEffect(()=>{
+
+    if (autenticado) {
+      router.push('/');
+    }
+
+  },[autenticado]);
 
   const formik=useFormik({
     initialValues:{
@@ -16,8 +31,8 @@ const Home = () => {
       password: Yup.string().required('La contraseña es obligatoria')
     }),
 
-    onSubmit:()=>{
-      console.log('enviando valores');
+    onSubmit:(valores)=>{  
+     iniciarSesion(valores)
     }
   })
 
@@ -27,6 +42,7 @@ const Home = () => {
         <h2 className="text-4xl font-sans font-bold text-gray-800 text-center my-4">
           Iniciar sesión
         </h2>
+        {mensaje && <Alerta>{mensaje}</Alerta>}
         <div className="flex justify-center mt-5">
           <div className="w-full max-w-lg">
             <form className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
