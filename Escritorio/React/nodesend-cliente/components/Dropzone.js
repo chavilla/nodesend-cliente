@@ -1,11 +1,14 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import clienteAxios from "../config/axios";
+import appContext from "../context/app/appContext";
 
 const Dropzone = () => {
 
+  const {mostrarAlerta}=useContext(appContext);
+
   const onDropRejected=()=>{
-    console.log('No se puede subir');
+    mostrarAlerta('El archivo es demasiado pesado. Para subir archivos mayores a 1MB regístrate.');
   }
 
   const onDropAccepted = useCallback(async (acceptedFiles) => {
@@ -21,7 +24,7 @@ const Dropzone = () => {
     getInputProps,
     isDragActive,
     acceptedFiles,
-  } = useDropzone({ onDropAccepted, onDropRejected, maxSize:1000000 });
+  } = useDropzone({ onDropAccepted, onDropRejected, maxSize:10 });
 
   //accerder archivo
   const archivos = acceptedFiles.map((archivo) => (
