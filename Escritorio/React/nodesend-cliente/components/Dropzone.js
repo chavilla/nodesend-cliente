@@ -5,7 +5,7 @@ import appContext from "../context/app/appContext";
 
 const Dropzone = () => {
 
-  const {mostrarAlerta}=useContext(appContext);
+  const {cargando,subirArchivos,mostrarAlerta}=useContext(appContext);
 
   const onDropRejected=()=>{
     mostrarAlerta('El archivo es demasiado pesado. Para subir archivos mayores a 1MB regístrate.');
@@ -14,8 +14,7 @@ const Dropzone = () => {
   const onDropAccepted = useCallback(async (acceptedFiles) => {
     const formData = new FormData();
     formData.append("file", acceptedFiles[0]);
-    const respuesta = await clienteAxios.post("api/files", formData);
-    console.log(respuesta.data);
+    subirArchivos(formData, acceptedFiles[0].path);
   }, []);
 
   //Extraer contenido de dropzone
@@ -24,7 +23,7 @@ const Dropzone = () => {
     getInputProps,
     isDragActive,
     acceptedFiles,
-  } = useDropzone({ onDropAccepted, onDropRejected, maxSize:10 });
+  } = useDropzone({ onDropAccepted, onDropRejected, maxSize:1000000 });
 
   //accerder archivo
   const archivos = acceptedFiles.map((archivo) => (
@@ -52,13 +51,18 @@ const Dropzone = () => {
         <div className="mt-10 w-full">
           <h4 className="text-2xl font-bold text-center mb-4">Archivos</h4>
           <ul>{archivos}</ul>
-          <button
-            className="bg-blue-700 w-full py-3 rounded-lg text-white my-10 hover:bg-blue-800"
-            type="button"
-            onClick={() => crearEnlace()}
-          >
-            Crear Enlace
-          </button>
+          { cargando 
+          ? 
+          <p className='my-10 text-center text-gray-600'>Subiendo archivo...</p>
+          : <button
+          className="bg-blue-700 w-full py-3 rounded-lg text-white my-10 hover:bg-blue-800"
+          type="button"
+          onClick={() => crearEnlace()}
+        >
+          Crear Enlace
+        </button>
+          }
+         
         </div>
       ) : (
         <div {...getRootProps({ className: "dropzone w-full py-32" })}>
