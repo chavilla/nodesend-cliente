@@ -21,7 +21,13 @@ const Home = () => {
     <Layout>
         <div className="md:w-4/5 xl:w-3/5 mx-auto mb-32">
           {url ? (
+            <>
             <p className='text-center text-2xl'><span className='font-bold text-red-700'>Tu url es</span>{`${process.env.frontedURL}/enlaces/${url}`}</p>
+            <button
+            onClick={()=> navigator.clipboard.writeText(`${process.env.frontedURL}/enlaces/${url}`)} 
+            type='button' className='bg-red-500 mt-4 hover:bg-gray-900 w-full p-2 text-white
+            uppercase font-bold'>Copiar Enlace</button>
+            </>
           ):(
             <>
             {mensaje_archivo && <Alerta/> }
