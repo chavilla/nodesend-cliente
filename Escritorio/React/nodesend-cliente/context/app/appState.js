@@ -18,6 +18,10 @@ const appState = ({ children }) => {
     nombre: "",
     nombreArchivo: "",
     cargando: null,
+    descargas:1,
+    password:'',
+    autor:'',
+    url:''
   };
 
   const [state, dispatch] = useReducer(appReducer, initialState);
@@ -59,6 +63,26 @@ const appState = ({ children }) => {
     }
   };
 
+  //Crea un enlace cda vez que se sube el archivo
+  const crearEnlace =async () => {
+    const data={
+      name:state.nombre,
+      originalName:state.nombreArchivo,
+      download: state.descargas,
+      password: state.password,
+      author: state.autor
+    }
+    try {
+      const respuesta=await clienteAxios.post('api/links',data);
+      dispatch({
+        type: CREAR_ENLACE_EXITO,
+        payload: respuesta.data.url
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <appContext.Provider
       value={{
@@ -66,8 +90,13 @@ const appState = ({ children }) => {
         nombreArchivo: state.nombreArchivo,
         mensaje_archivo: state.mensaje_archivo,
         cargando: state.cargando,
+        descargas:state.descargas,
+        password:state.password,
+        autor:state.autor,
+        url:state.url,
         mostrarAlerta,
         subirArchivos,
+        crearEnlace
       }}
     >
       {children}

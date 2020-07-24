@@ -1,11 +1,10 @@
 import React, { useState, useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
-import clienteAxios from "../config/axios";
 import appContext from "../context/app/appContext";
 
 const Dropzone = () => {
 
-  const {cargando,subirArchivos,mostrarAlerta}=useContext(appContext);
+  const {cargando,subirArchivos,mostrarAlerta,crearEnlace}=useContext(appContext);
 
   const onDropRejected=()=>{
     mostrarAlerta('El archivo es demasiado pesado. Para subir archivos mayores a 1MB regístrate.');
@@ -37,10 +36,6 @@ const Dropzone = () => {
       </p>
     </li>
   ));
-
-  const crearEnlace = () => {
-    console.log("creando enlace");
-  };
 
   return (
     <div
