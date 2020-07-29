@@ -9,7 +9,8 @@ import {
   SUBIR_EXITO,
   SUBIENDO_ARCHIVO,
   CREAR_ENLACE_EXITO,
-  LIMPIAR_STATE
+  LIMPIAR_STATE,
+  AGREGAR_PASSWORD
 } from "../../types";
 
 const appState = ({ children }) => {
@@ -90,6 +91,13 @@ const appState = ({ children }) => {
     })
   }
 
+  const agregarPassword=password=>{
+    dispatch({
+      type: AGREGAR_PASSWORD,
+      payload: password
+    })
+  }
+
   return (
     <appContext.Provider
       value={{
@@ -104,7 +112,8 @@ const appState = ({ children }) => {
         mostrarAlerta,
         subirArchivos,
         crearEnlace,
-        limpiarState
+        limpiarState,
+        agregarPassword
       }}
     >
       {children}

@@ -1,10 +1,14 @@
 import React, { useState, useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import appContext from "../context/app/appContext";
+import authContext from "../context/autenticacion/authContext";
+import Formulario from './Formulario';
 
 const Dropzone = () => {
 
   const {cargando,subirArchivos,mostrarAlerta,crearEnlace}=useContext(appContext);
+
+  const { autenticado }=useContext(authContext);
 
   const onDropRejected=()=>{
     mostrarAlerta('El archivo es demasiado pesado. Para subir archivos mayores a 1MB regístrate.');
@@ -46,6 +50,12 @@ const Dropzone = () => {
         <div className="mt-10 w-full">
           <h4 className="text-2xl font-bold text-center mb-4">Archivos</h4>
           <ul>{archivos}</ul>
+
+          { autenticado ? 
+          <Formulario/> : 
+          null
+          }
+
           { cargando 
           ? 
           <p className='my-10 text-center text-gray-600'>Subiendo archivo...</p>

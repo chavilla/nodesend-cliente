@@ -30,7 +30,8 @@ export default(state,action)=>{
         case USUARIO_AUTENTICADO:
             return{
                 ...state,
-                usuario: action.payload
+                usuario: action.payload,
+                autenticado:true
             }
         
         case OCULTAR_ALERTA:
@@ -42,6 +43,7 @@ export default(state,action)=>{
         case CERRAR_SESION:
             localStorage.removeItem('token');
             return{
+                ...state,
                 usuario:null,
                 token:null,
                 autenticado:null,
