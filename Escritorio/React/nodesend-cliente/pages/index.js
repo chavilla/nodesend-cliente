@@ -10,7 +10,7 @@ import { MOSTRAR_ALERTA } from '../types';
 const Home = () => {
 
   const { usuarioAutenticado }=useContext(authContext);
-  const {mensaje_archivo, url}=useContext(appContext);
+  const {mensaje_archivo, mostrarAlerta, url}=useContext(appContext);
 
 
   useEffect(()=>{

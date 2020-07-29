@@ -10,7 +10,8 @@ import {
   SUBIENDO_ARCHIVO,
   CREAR_ENLACE_EXITO,
   LIMPIAR_STATE,
-  AGREGAR_PASSWORD
+  AGREGAR_PASSWORD,
+  AGREGAR_DESCARGAS
 } from "../../types";
 
 const appState = ({ children }) => {
@@ -91,10 +92,19 @@ const appState = ({ children }) => {
     })
   }
 
+  // Agrega un password
   const agregarPassword=password=>{
     dispatch({
       type: AGREGAR_PASSWORD,
       payload: password
+    })
+  }
+
+  //Agrega la cantiodad de descargas
+  const agregarDescargas=descargas=>{
+    dispatch({
+      type: AGREGAR_DESCARGAS,
+      payload: descargas
     })
   }
 
@@ -113,7 +123,8 @@ const appState = ({ children }) => {
         subirArchivos,
         crearEnlace,
         limpiarState,
-        agregarPassword
+        agregarPassword,
+        agregarDescargas
       }}
     >
       {children}
