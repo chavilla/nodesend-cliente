@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "gatsby-cli": "^2.12.60",
+    "n": "^6.5.1",
+    "uuid": "^8.1.0"
+  },
+  "version": "0.0.0"
+}
