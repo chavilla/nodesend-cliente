@@ -1,39 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Template</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <div class="next bg-gray">
-       <header class="site-header">
-            <nav class="navbar">
-                <div class="c-logo">CHAVIWEB</div>
-                <div class="main-menu">
-                    <ul class="menu-list" >
-                        <div><a href="#">Inicio</a></div>
-                        <div><a href="#" >Tienda</a></div>
-                        <div><a href="#">Carrito</a></div>
-                    </ul>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <div id="overlay" class=""></div>
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="menu-zone">
+                <button type="button" id="btnShowMenu"></button>
+                <div class="menu-movil">
+                  <img src="img/menu_mini.png" alt="menu-img">
                 </div>
-                <div class="main-menu-end">
-                    <div>
-                        <i class="fas fa-user-alt color-icon icon-awesome-header"></i>
-                    </div>
-                    <div id="header-toggle">
-                        <i class="fas fa-bars color-icon"></i>
-                    </div>
-                </div>
-            </nav>
-       </header>
-       <div class="hero">
-           <h1 class="title">Hola</h1>
-       </div>
+          </div>
+          <div class="c-logo">
+            <a href="/index.html"><img src="img/logo.png" alt=""></a>
+          </div>
+          <div class="main-menu ">
+            <ul class="menu-list">
+              <div>
+                <button id="exitMenu" type="button"></button>
+                <iframe src="img/salida.svg" frameborder="0"></iframe>
+              </div>
+              <a href="#">Inicio</a>
+              <a href="#">Damas</a>
+              <a href="#">Caballeros</a>
+              <a href="#">Niños</a>
+              <a href="#">Ofertas</a>
+            </ul>
+          </div>
+          <div class="c-car">
+           <img src="img/carro.png" alt="">
+          </div>
+        
+          <div class="c-user">
+            <img src="img/user.png" alt="">
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-img"></div>
+      <div class="hero-title" id="">
+        <h1 id="title" class="title text-center"></h1>
+        <div class="hero-description">
+          <p class="text-center">
+          Muebles, Juguetes y Ropa
+          </p>
+        </div>
+        <a href="#" id="btnMain" class="btn-main text-center translate-right"
+          >Compra Ahora</a
+        >
+      </div>
     </div>
-</body>
+    <section class="section categories">
+      <div class="div-categories">
+        <a href="/clothe.html" class="link-categories">
+          <span class="text-categories">Ropa de damas y caballeros</span>
+          <img src="img/caballeros.jpg" alt="caballeros" srcset="">
+        </a>
+        <a href="/furniture.html" class="link-categories">
+          <span class="text-categories">Muebles para tu hogar</span>
+          <img src="img/sala.jpg" alt="sala">
+        </a>
+        <a href="" class="link-categories">
+          <span class="text-categories">Juguetería para tus niños</span>
+          <img src="img/juguetes.jpg" alt="sala">
+        </a>
+      </div>
+    </section>
+    <section class="container-card">
+      <h2 class="text-center">Recomendados</h2>
+      <p class="text-center card-title">Lo más vendido esta semana</p>
+      <div class="card-parent">
+        <div class="card">
+          <div class="card-img">
+            <img src="img/lampara.jpeg" alt="lampara">
+          </div>
+          <div class="card-info">
+            <form>
+              <p class="clasificacion text-center">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+              <p class="text-center">Opiniones</p>
+            </form>
+            <h3 class="text-center">Lámpara Tubular Negra</h3>
+            <p class="price text-center">$35,00</p>
+            <p class="name text-center">
+              Lámpara Tubular negra apropiada para escritorio
+              o para una habitación.
+            </p>
+            <button type="button" class="btn-car">
+              <img src="img/carro.png" alt="" srcset="">
+              Añadir
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="img/lampara.jpeg" alt="lampara">
+          </div>
+          <div class="card-info">
+            <form>
+              <p class="clasificacion text-center">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+              <p class="text-center">Opiniones</p>
+            </form>
+            <h3 class="text-center">Lámpara Tubular Negra</h3>
+            <p class="price text-center">$35,00</p>
+            <p class="name text-center">
+              Lámpara Tubular negra apropiada para escritorio
+              o para una habitación.
+            </p>
+            <button type="button" class="btn-car">
+              <img src="img/carro.png" alt="" srcset="">
+              Añadir
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="img/lampara.jpeg" alt="lampara">
+          </div>
+          <div class="card-info">
+            <form>
+              <p class="clasificacion text-center">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+              <p class="text-center">Opiniones</p>
+            </form>
+            <h3 class="text-center">Lámpara Tubular Negra</h3>
+            <p class="price text-center">$35,00</p>
+            <p class="name text-center">
+              Lámpara Tubular negra apropiada para escritorio
+              o para una habitación.
+            </p>
+            <button type="button" class="btn-car">
+              <img src="img/carro.png" alt="" srcset="">
+              Añadir
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="img/lampara.jpeg" alt="lampara">
+          </div>
+          <div class="card-info">
+            <form>
+              <p class="clasificacion text-center">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+              <p class="text-center">Opiniones</p>
+            </form>
+            <h3 class="text-center">Lámpara Tubular Negra</h3>
+            <p class="price text-center">$35,00</p>
+            <p class="name text-center">
+              Lámpara Tubular negra apropiada para escritorio
+              o para una habitación.
+            </p>
+            <button type="button" class="btn-car">
+              <img src="img/carro.png" alt="" srcset="">
+              Añadir
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="img/lampara.jpeg" alt="lampara">
+          </div>
+          <div class="card-info">
+            <form>
+              <p class="clasificacion text-center">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+              <p class="text-center">Opiniones</p>
+            </form>
+            <h3 class="text-center">Lámpara Tubular Negra</h3>
+            <p class="price text-center">$35,00</p>
+            <p class="name text-center">
+              Lámpara Tubular negra apropiada para escritorio
+              o para una habitación.
+            </p>
+            <button type="button" class="btn-car">
+              <img src="img/carro.png" alt="" srcset="">
+              Añadir
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="img/lampara.jpeg" alt="lampara">
+          </div>
+          <div class="card-info">
+            <form>
+              <p class="clasificacion text-center">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+              <p class="text-center">Opiniones</p>
+            </form>
+            <h3 class="text-center">Lámpara Tubular Negra</h3>
+            <p class="price text-center">$35,00</p>
+            <p class="name text-center">
+              Lámpara Tubular negra apropiada para escritorio
+              o para una habitación.
+            </p>
+            <button type="button" class="btn-car">
+              <img src="img/carro.png" alt="" srcset="">
+              Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="banner-general parallax">
+      <div class="content-banner">
+        <h3>Tenemos un 30% de descuento esta semana</h3>
+      </div>
+    </section>
+    <section class="about container">
+      <h2 class="text-center">Quíenes Somos</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, quis voluptate quibusdam vitae odit aspernatur amet tempore veniam laboriosam, perspiciatis quaerat nostrum, sint unde rem est fuga? Magnam eum laborum quisquam corrupti nostrum dignissimos accusantium dicta aperiam nobis minima a excepturi asperiores repudiandae, nihil obcaecati placeat provident sint quasi sed rem pariatur laudantium fugiat natus cum? Libero, minus? Assumenda, alias?</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, quis voluptate quibusdam vitae odit aspernatur amet tempore veniam laboriosam, perspiciatis quaerat nostrum, sint unde rem est fuga? Magnam eum laborum quisquam corrupti nostrum dignissimos accusantium dicta aperiam nobis minima a excepturi asperiores repudiandae, nihil obcaecati placeat provident sint quasi sed rem pariatur laudantium fugiat natus cum? Libero, minus? Assumenda, alias?</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, quis voluptate quibusdam vitae odit aspernatur amet tempore veniam laboriosam, perspiciatis quaerat nostrum, sint unde rem est fuga? Magnam eum laborum quisquam corrupti nostrum dignissimos accusantium dicta aperiam nobis minima a excepturi asperiores repudiandae, nihil obcaecati placeat provident sint quasi sed rem pariatur laudantium fugiat natus cum? Libero, minus? Assumenda, alias?</p>
+    </section>
+      <div class="wrapper">
+        <div class="container">
+          <div class="desplegable-parent">
+            <div class="div-option">
+              <h4 class="title-menu-footer">Información</h4>
+              <div class="icon-options">
+                <img src="img/mas.png" alt="" srcset="">
+              </div>
+              <ul class="options hide-options">
+                <li>lorem1</li>
+                <li>lorem2</li>
+                <li>lorem3</li>
+              </ul>
+            </div>
+          </div>
+          <div class="desplegable-parent">
+            <div class="div-option">
+              <h4 class="title-menu-footer">Información</h4>
+              <div class="icon-options">
+                <img src="img/mas.png" alt="" srcset="">
+              </div>
+              <ul class="options">
+                <li>lorem4</li>
+                <li>lorem5</li>
+                <li>lorem6</li>
+              </ul>
+            </div>
+          </div>
+          <div class="desplegable-parent">
+            <div class="div-option">
+              <h4 class="title-menu-footer">Información</h4>
+              <div class="icon-options">
+                <img src="img/mas.png" alt="" srcset="">
+              </div>
+              <ul class="options hide-options">
+                <li>lorem1</li>
+                <li>lorem2</li>
+                <li>lorem3</li>
+              </ul>
+            </div>
+          </div>
+          <div class="desplegable-parent">
+            <div class="div-option">
+              <h4 class="title-menu-footer">Información</h4>
+              <div class="icon-options">
+                <img src="img/mas.png" alt="" srcset="">
+              </div>
+              <ul class="options">
+                <li>lorem4</li>
+                <li>lorem5</li>
+                <li>lorem6</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="copy text-center">
+          <div class="c-logo-footer">
+            <img src="img/logo.png" alt="" srcset="">
+          </div>
+          <p>
+            Todos Los derechos reservador &copy; 2020
+          </p>
+        </div>
+
+        <div class="credit-card">
+          <div class="container">
+            <img src="img/BACDS-4800_StickerTarjetasDigital520x90.png" alt="">
+          </div>
+        
+        </div>
+      </footer>
 </html>

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^4.5.2",
+    "create-react-app": "^4.0.1",
     "gatsby-cli": "^2.12.60",
     "n": "^6.5.1",
     "uuid": "^8.1.0"
